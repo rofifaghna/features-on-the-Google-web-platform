@@ -64,17 +64,17 @@
     </div>
     <!-- akhir jumbotron -->
 
-    <a class="btn btn-primary" href="rpl/camera2.html" role="button">Camera</a>
+    <a class="btn btn-primary" href="camera2.html" role="button">Camera</a>
 
-    <a class="btn btn-primary" href="rpl/location.php" role="button">Location</a>
+    <a class="btn btn-primary" href="location.php" role="button">Location</a>
 
-    <a class="btn btn-primary" href="rpl/bluetooth/bluetooth.html" role="button">Bluetooth</a>
+    <a class="btn btn-primary" href="bluetooth/bluetooth.html" role="button">Bluetooth</a>
 
-    <a class="btn btn-primary" href="rpl/audio.html" role="button">Audio</a>
+    <a class="btn btn-primary" href="audio.html" role="button">Audio</a>
 
-    <a class="btn btn-primary" href="rpl/notif.html" role="button">Notification</a>
+    <a class="btn btn-primary" href="notif.html" role="button">Notification</a>
 
-    <a class="btn btn-primary" href="rpl/mic.html" role="button">Microphone</a>
+    <a class="btn btn-primary" href="mic.html" role="button">Microphone</a>
 
     
 
