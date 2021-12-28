@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Spesial Notif</title>
+    <script>
+      function notify() {
+        if (Notification.permission !== "granted") {
+          Notification.requestPermission();
+        } else {
+          var notification = new Notification("Selamat", {
+            body: "Anda berhasil menampilkan special notification",
+          });
+          notification.onclick = function () {
+            window.open("http://google.com");
+          };
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <button onclick="notify()">Notify</button>
+  </body>
+</html>
