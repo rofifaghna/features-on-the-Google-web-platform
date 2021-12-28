@@ -1,27 +1,53 @@
-<button onclick="notifyMe()">Notify me!</button>
+<p>Current permission status is <b id="status">unavailable</b>.</p>
 
-<script type="text/javascript">
-  // request permission on page load
-  document.addEventListener("DOMContentLoaded", function () {
-    if (!Notification) {
-      alert("Desktop notifications not available in your browser. Try Chromium.");
+<p><button onclick="requestPermission()">Request permission</button></p>
+<p><button onclick="nonPersistentNotification()">Non-persistent notification</button></p>
+<p><button onclick="persistentNotification()">Persistent notification</button></p>
+
+<script>
+  var $status = document.getElementById("status");
+
+  if ("Notification" in window) {
+    $status.innerText = Notification.permission;
+  }
+
+  function requestPermission() {
+    if (!("Notification" in window)) {
+      alert("Notification API not supported!");
       return;
     }
 
-    if (Notification.permission !== "granted") Notification.requestPermission();
-  });
+    Notification.requestPermission(function (result) {
+      $status.innerText = result;
+    });
+  }
 
-  function notifyMe() {
-    if (Notification.permission !== "granted") Notification.requestPermission();
-    else {
-      var notification = new Notification("Notification title", {
-        icon: "http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png",
-        body: "Hey there! You have been notified!",
-      });
+  function nonPersistentNotification() {
+    if (!("Notification" in window)) {
+      alert("Notification API not supported!");
+      return;
+    }
 
-      notification.onclick = function () {
-        window.open("http://stackoverflow.com/a/13328397/1269037");
-      };
+    try {
+      var notification = new Notification("Hi there - non-persistent!");
+    } catch (err) {
+      alert("Notification API error: " + err);
+    }
+  }
+
+  function persistentNotification() {
+    if (!("Notification" in window) || !("ServiceWorkerRegistration" in window)) {
+      alert("Persistent Notification API not supported!");
+      return;
+    }
+
+    try {
+      navigator.serviceWorker
+        .getRegistration()
+        .then((reg) => reg.showNotification("Hi there - persistent!"))
+        .catch((err) => alert("Service Worker registration error: " + err));
+    } catch (err) {
+      alert("Notification API error: " + err);
     }
   }
 </script>
