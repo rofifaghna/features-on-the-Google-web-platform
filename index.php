@@ -76,6 +76,12 @@
 
     <a class="btn btn-primary" href="mic.html" role="button">Microphone</a>
 
+    <a class="btn btn-primary" href="accelerometer.html" role="button">Accelerometer</a>
+
+    <a class="btn btn-primary" href="wifi.html" role="button">Wifi</a>
+
+    <a class="btn btn-primary" href="specialNotif.html" role="button">Special Notif</a>
+
     
 
 
